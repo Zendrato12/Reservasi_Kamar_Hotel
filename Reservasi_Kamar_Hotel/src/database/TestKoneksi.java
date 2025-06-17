@@ -10,7 +10,7 @@ import java.sql.SQLException;
 
 public class TestKoneksi {
 
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/db_hotel"; // Ganti dengan nama database kamu
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/db_hotel";
     private static final String USER = "root"; // Username XAMPP default
     private static final String PASS = ""; // Password XAMPP default
 
