@@ -1,0 +1,32 @@
+CREATE DATABASE IF NOT EXISTS db_hotel;
+USE db_hotel;
+
+CREATE TABLE tbl_jenis_kamar (
+    id_jenis_kamar INT AUTO_INCREMENT PRIMARY KEY,
+    nama VARCHAR(50),
+    harga DOUBLE
+);
+
+CREATE TABLE tbl_kamar (
+    id_kamar INT AUTO_INCREMENT PRIMARY KEY,
+    nomor_kamar VARCHAR(10),
+    id_jenis_kamar INT,
+    FOREIGN KEY (id_jenis_kamar) REFERENCES tbl_jenis_kamar(id_jenis_kamar)
+);
+
+CREATE TABLE tbl_tamu (
+    id_tamu INT AUTO_INCREMENT PRIMARY KEY,
+    nama VARCHAR(100),
+    alamat TEXT,
+    telepon VARCHAR(15)
+);
+
+CREATE TABLE tbl_reservasi (
+    id_reservasi INT AUTO_INCREMENT PRIMARY KEY,
+    id_tamu INT,
+    id_kamar INT,
+    tgl_check_in DATE,
+    tgl_check_out DATE,
+    FOREIGN KEY (id_tamu) REFERENCES tbl_tamu(id_tamu),
+    FOREIGN KEY (id_kamar) REFERENCES tbl_kamar(id_kamar)
+);
